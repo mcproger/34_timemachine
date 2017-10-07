@@ -1,5 +1,5 @@
 var TIMEOUT_IN_SECS = 3 * 60
-var TEMPLATE = '<h1><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>'
+var TEMPLATE = '<h1 style="position: fixed; z-index: 3;"><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>'
 
 function padZero(number){
   return ("00" + String(number)).slice(-2);
