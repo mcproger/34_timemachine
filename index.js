@@ -93,11 +93,11 @@ function main(){
       'Вызов делает жизнь интересной. Свершения наполняют ее смылом',
       'Человек, который говорит, что это невозможно, не должен мешать тому, кто просто это делает.'
     ];
-    return alert(notifications[Math.floor(Math.random() * notifications.length)]);
+    return notifications[Math.floor(Math.random() * notifications.length)];
   }
 
   function showNotifications() {
-    getNotifications()
+    alert(getNotifications());
     setTimeout(showNotifications, 30000);
   }
 
