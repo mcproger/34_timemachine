@@ -85,8 +85,27 @@ function main(){
 
   timerWiget.mount(document.body)
 
-  function handleIntervalTick(){
+  function getNotifications(){
+    var notifications = [
+      'Сложнее всего начать действовать, все остальное зависит только от упорства',
+      'Хочешь избежать критики — ничего не делай, ничего не говори и будь никем',
+      ' Гений – это один процент вдохновения и девяносто процентов пота',
+      'Вызов делает жизнь интересной. Свершения наполняют ее смылом',
+      'Человек, который говорит, что это невозможно, не должен мешать тому, кто просто это делает.'
+    ];
+    return alert(notifications[Math.floor(Math.random() * notifications.length)]);
+  }
+
+  function showNotifications() {
+    getNotifications()
+    setTimeout(showNotifications, 30000);
+  }
+
+ function handleIntervalTick(){
     var secsLeft = timer.calculateSecsLeft()
+    if (secsLeft == 1){
+      setTimeout(showNotifications , 100);
+    }
     timerWiget.update(secsLeft)
   }
 
@@ -100,6 +119,7 @@ function main(){
       intervalId = intervalId || setInterval(handleIntervalTick, 300)
     }
   }
+
 
   // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
